@@ -1,8 +1,8 @@
 # Clinical Trials API
 
-A RESTful API built with ASP.NET Core and Entity Framework Core for managing clinical trial data. 
-Designed to demonstrate backend development skills including data modeling, validation, 
-persistent storage, and relational database design.
+A RESTful API built with ASP.NET Core and Entity Framework Core for managing clinical trial data.
+Designed to demonstrate backend development skills including data modeling, validation,
+persistent storage, relational database design, and containerized deployment.
 
 ## Tech Stack
 
@@ -10,6 +10,7 @@ persistent storage, and relational database design.
 - **Entity Framework Core** — ORM for database access
 - **SQLite** — Lightweight persistent database
 - **Scalar** — API documentation and testing UI
+- **Docker** — Containerized deployment
 
 ## Features
 
@@ -18,6 +19,7 @@ persistent storage, and relational database design.
 - Input validation using Data Annotations
 - Persistent storage with SQLite
 - Auto-generated API documentation via Scalar
+- Containerized with Docker for consistent deployment
 
 ## Endpoints
 
@@ -40,10 +42,16 @@ persistent storage, and relational database design.
 
 ## Getting Started
 
-### Prerequisites
-- .NET 10 SDK
+### Option 1: Run with Docker
+```bash
+git clone https://github.com/adham1177/ClinicalTrialsAPI.git
+cd ClinicalTrialsAPI
+docker build -t clinical-trials-api .
+docker run -p 8080:8080 clinical-trials-api
+```
+Then open: `http://localhost:8080/api/patients`
 
-### Run Locally
+### Option 2: Run Locally
 ```bash
 git clone https://github.com/adham1177/ClinicalTrialsAPI.git
 cd ClinicalTrialsAPI
@@ -51,7 +59,6 @@ dotnet restore
 dotnet ef database update
 dotnet run
 ```
-
 Then open: `http://localhost:5067/scalar/v1`
 
 ## Data Models
@@ -61,7 +68,7 @@ Then open: `http://localhost:5067/scalar/v1`
 - `FullName` — required, 2-100 characters
 - `Age` — required, 1-120
 - `Diagnosis` — required, 2-200 characters
-- `EntrolledAt` — auto-set to enrollment date
+- `EnrolledAt` — auto-set to enrollment date
 - `ClinicalTrialId` — foreign key to trial
 
 ### ClinicalTrial
