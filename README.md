@@ -49,7 +49,7 @@ cd ClinicalTrialsAPI
 docker build -t clinical-trials-api .
 docker run -p 8080:8080 clinical-trials-api
 ```
-Then open: `http://localhost:8080/api/patients`
+Then open: `http://localhost:8080/scalar/v1`
 
 ### Option 2: Run Locally
 ```bash
