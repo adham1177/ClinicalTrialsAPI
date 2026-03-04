@@ -21,11 +21,15 @@ using (var scope = app.Services.CreateScope())
     db.Database.Migrate();
 }
 
-if (app.Environment.IsDevelopment())
+app.MapOpenApi();
+app.MapScalarApiReference(options =>
 {
-    app.MapOpenApi();
-    app.MapScalarApiReference();
-}
+    options.Servers = new[]
+    {
+        new ScalarServer("https://clinical-trials-api.azurewebsites.net"),
+        new ScalarServer("http://localhost:5067")
+    };
+});
 
 app.MapControllers();
 app.Run();

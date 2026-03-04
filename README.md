@@ -2,7 +2,10 @@
 
 A RESTful API built with ASP.NET Core and Entity Framework Core for managing clinical trial data.
 Designed to demonstrate backend development skills including data modeling, validation,
-persistent storage, relational database design, and containerized deployment.
+persistent storage, relational database design, and containerized cloud deployment.
+
+## 🚀 Live Demo
+**API is live at:** https://clinical-trials-api.azurewebsites.net/scalar/v1
 
 ## Tech Stack
 
@@ -11,6 +14,7 @@ persistent storage, relational database design, and containerized deployment.
 - **SQLite** — Lightweight persistent database
 - **Scalar** — API documentation and testing UI
 - **Docker** — Containerized deployment
+- **Microsoft Azure** — Cloud hosting via App Service
 
 ## Features
 
@@ -20,6 +24,7 @@ persistent storage, relational database design, and containerized deployment.
 - Persistent storage with SQLite
 - Auto-generated API documentation via Scalar
 - Containerized with Docker for consistent deployment
+- Deployed to Microsoft Azure App Service
 
 ## Endpoints
 
@@ -42,16 +47,22 @@ persistent storage, relational database design, and containerized deployment.
 
 ## Getting Started
 
-### Option 1: Run with Docker
+### Option 1: Live Demo
+Visit the live API directly:
+```
+https://clinical-trials-api.azurewebsites.net/scalar/v1
+```
+
+### Option 2: Run with Docker
 ```bash
 git clone https://github.com/adham1177/ClinicalTrialsAPI.git
 cd ClinicalTrialsAPI
 docker build -t clinical-trials-api .
 docker run -p 8080:8080 clinical-trials-api
 ```
-Then open: `http://localhost:8080/api/patients`
+Then open: `http://localhost:8080/scalar/v1`
 
-### Option 2: Run Locally
+### Option 3: Run Locally
 ```bash
 git clone https://github.com/adham1177/ClinicalTrialsAPI.git
 cd ClinicalTrialsAPI
