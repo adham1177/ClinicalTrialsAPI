@@ -22,7 +22,14 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.MapOpenApi();
-app.MapScalarApiReference();
+app.MapScalarApiReference(options =>
+{
+    options.Servers = new[]
+    {
+        new ScalarServer("https://clinical-trials-api.azurewebsites.net"),
+        new ScalarServer("http://localhost:5067")
+    };
+});
 
 app.MapControllers();
 app.Run();
