@@ -11,7 +11,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
         System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
 });
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite("Data Source=clinicaltrials.db"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
