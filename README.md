@@ -11,7 +11,7 @@ persistent storage, relational database design, and containerized cloud deployme
 
 - **ASP.NET Core 10** — Web API framework
 - **Entity Framework Core** — ORM for database access
-- **SQLite** — Lightweight persistent database
+- **Azure SQL Database** — Fully managed cloud relational database
 - **Scalar** — API documentation and testing UI
 - **Docker** — Containerized deployment
 - **Microsoft Azure** — Cloud hosting via App Service
@@ -21,7 +21,7 @@ persistent storage, relational database design, and containerized cloud deployme
 - Full CRUD operations for Patients and Clinical Trials
 - One-to-many relationship between Trials and Patients
 - Input validation using Data Annotations
-- Persistent storage with SQLite
+- Persistent storage with Azure SQL Database
 - Auto-generated API documentation via Scalar
 - Containerized with Docker for consistent deployment
 - Deployed to Microsoft Azure App Service
@@ -58,7 +58,7 @@ https://clinical-trials-api.azurewebsites.net/scalar/v1
 git clone https://github.com/adham1177/ClinicalTrialsAPI.git
 cd ClinicalTrialsAPI
 docker build -t clinical-trials-api .
-docker run -p 8080:8080 clinical-trials-api
+docker run -p 8080:8080 -e ConnectionStrings__DefaultConnection="your-sql-connection-string" clinical-trials-api
 ```
 Then open: `http://localhost:8080/scalar/v1`
 
@@ -66,6 +66,19 @@ Then open: `http://localhost:8080/scalar/v1`
 ```bash
 git clone https://github.com/adham1177/ClinicalTrialsAPI.git
 cd ClinicalTrialsAPI
+```
+
+Add your connection string to `appsettings.json`:
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "your-sql-connection-string-here"
+  }
+}
+```
+
+Then run:
+```bash
 dotnet restore
 dotnet ef database update
 dotnet run
